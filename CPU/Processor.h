@@ -19,14 +19,13 @@ private:
 	int8_t* memory; //todo: implement this in a proper way
 
 	void ExecuteInstruction();
+	void InitializeInstructionSet();
 public:
 	Processor(double frequency);
 	~Processor();
-
 	void Loop();
 
 private:
-#pragma instruction set
 	//add with carry -> DP Indexed Indirect
 	//2 byes
 	void ADC()
@@ -34,6 +33,5 @@ private:
 		mRegisters.ProgramCounter += sizeof(int8_t);
 		mRegisters.DP += *(memory + mRegisters.ProgramCounter);
 	}
-#pragma end
 };
 
