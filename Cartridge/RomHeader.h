@@ -1,0 +1,25 @@
+#pragma once
+#include <cstdint>
+
+struct RomHeader
+{
+	int8_t		GameTitle[21];
+	int8_t		RomMakeUp;
+	int8_t		RomType;
+	int8_t		RomInternalType;
+	int8_t		RamInternalType;
+	int16_t		CreatorLicenseId;
+	int8_t		VersionNumber;
+	int16_t		ChecksumComplement;
+
+
+	inline int GetRomSize()
+	{
+		return 0x400 << RomInternalType;
+	}
+
+	inline int GetRamSize()
+	{
+		return 0x400 << RamInternalType;
+	}
+};
