@@ -9,7 +9,7 @@ struct RomHeader
 	int8_t		RomInternalType;
 	int8_t		RamInternalType;
 	int16_t		CreatorLicenseId;
-	int8_t		VersionNumber;
+	int16_t		VersionNumber;
 	int16_t		ChecksumComplement;
 
 

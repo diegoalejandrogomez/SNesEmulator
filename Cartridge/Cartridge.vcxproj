@@ -128,6 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cartridge.h" />
+    <ClInclude Include="LoRom.h" />
+    <ClInclude Include="MemoryBank.h" />
+    <ClInclude Include="MemoryModel.h" />
     <ClInclude Include="ROM.h" />
     <ClInclude Include="RomHeader.h" />
     <ClInclude Include="StaticRam.h" />
@@ -136,6 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cartridge.cpp" />
+    <ClCompile Include="LoRom.cpp" />
+    <ClCompile Include="MemoryBank.cpp" />
+    <ClCompile Include="MemoryModel.cpp" />
     <ClCompile Include="ROM.cpp" />
     <ClCompile Include="StaticRam.cpp" />
     <ClCompile Include="stdafx.cpp">

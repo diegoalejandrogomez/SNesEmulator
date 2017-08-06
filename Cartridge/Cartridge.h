@@ -8,6 +8,7 @@ class Cartridge
 private:
 	StaticRam*	staticRam;
 	ROM*		ROM;
+
 public:
 	Cartridge();
 	~Cartridge();
