@@ -10,8 +10,7 @@ struct RomHeader
 	int8_t		RamInternalType;
 	int16_t		CreatorLicenseId;
 	int16_t		VersionNumber;
-	int16_t		ChecksumComplement;
-
+	
 
 	inline int GetRomSize()
 	{

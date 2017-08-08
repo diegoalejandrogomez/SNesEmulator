@@ -6,9 +6,8 @@ class ROM;
 class Cartridge
 {
 private:
-	StaticRam*	staticRam;
-	ROM*		ROM;
-
+	StaticRam*		staticRam;
+	ROM*			rom;
 public:
 	Cartridge();
 	~Cartridge();
