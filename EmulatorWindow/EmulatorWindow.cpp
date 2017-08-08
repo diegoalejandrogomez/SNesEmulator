@@ -2,14 +2,16 @@
 //
 
 #include "stdafx.h"
-#include <Cartridge.h>
+#include <SnesConsole.h>
 
 int main(int argc, char* argv[])
 {
 	char* emuPath=argv[1];
 	char* emuName = argv[2];
-	Cartridge* cartridge = new Cartridge();
-	cartridge->Insert(emuPath, emuName);
+	SnesConsole* snes = new SnesConsole();
+	snes->InsertCartridge(emuPath, emuName);
+	snes->TurnOn();
+	while (true);
     return 0;
 }
 

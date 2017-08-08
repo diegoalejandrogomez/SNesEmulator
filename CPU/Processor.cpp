@@ -7,13 +7,12 @@ Processor::Processor(double frequency) :
 	frequency(frequency),
 	mClock(new Clock(frequency, MHZ))
 {
-	memcpy(&mRegisters, 0, sizeof(mRegisters));
+	memset(&mRegisters, 0, sizeof(mRegisters));
 	mExecutionStatus = ExecutionStatus::Executing;
 	std::function<void()> onTick = std::bind(&Processor::ExecuteInstruction, this);
 	
 	mClock->SetOnTick(onTick);
 	mStatus = new ProcessorStatus();
-	Loop();
 }
 
 void Processor::InitializeInstructionSet()
@@ -25,6 +24,8 @@ Processor::~Processor()
 {
 	delete mClock;
 	delete mStatus;
+
+	mInstructionMapping.clear();
 }
 
 void Processor::ExecuteInstruction()

@@ -3,6 +3,7 @@
 #include "MemoryModel.h"
 #include "RomHeader.h"
 #include "MemoryBank.h"
+
 ROM::ROM(char* path)
 {
 	std::ifstream romFile(path, std::ios::binary);
@@ -17,7 +18,7 @@ ROM::ROM(char* path)
 	GetMemoryLayout(romFile);
 	FillMemoryWithRomData(romFile);
 	FillRomHeader();
-
+	FillInterruptions();
 	romFile.close();
 }
 
@@ -81,4 +82,53 @@ void ROM::FillRomHeader()
 		offset += 2;
 		memcpy(&romHeader->VersionNumber, offset, sizeof(int16_t));
 	}
+}
+
+void ROM::FillInterruptions()
+{
+	int16_t* instructionAddress = new int16_t();
+
+	//TODO: HiRom
+	if (isLowRom)
+	{
+		int8_t* offset = (memoryModel->Banks->MemoryPosition + headerPosition + 0x40); //64 bytes for header
+		memcpy(instructionAddress, offset, sizeof(int16_t));
+		interruptions8bits.insert(std::pair<Interruption8Bits, int16_t>(Interruption8Bits::COP8, *instructionAddress));
+		offset += 2;
+		memcpy(instructionAddress, offset, sizeof(int16_t));
+		interruptions8bits.insert(std::pair<Interruption8Bits, int16_t>(Interruption8Bits::BRK8, *instructionAddress));
+		offset += 2;
+		memcpy(instructionAddress, offset, sizeof(int16_t));
+		interruptions8bits.insert(std::pair<Interruption8Bits, int16_t>(Interruption8Bits::ABORT8, *instructionAddress));
+		offset += 2;
+		memcpy(instructionAddress, offset, sizeof(int16_t));
+		interruptions8bits.insert(std::pair<Interruption8Bits, int16_t>(Interruption8Bits::NMI8, *instructionAddress));
+		offset += 2;
+		memcpy(instructionAddress, offset, sizeof(int16_t));
+		interruptions8bits.insert(std::pair<Interruption8Bits, int16_t>(Interruption8Bits::RESET8, *instructionAddress));
+		offset += 2;
+		memcpy(instructionAddress, offset, sizeof(int16_t));
+		interruptions8bits.insert(std::pair<Interruption8Bits, int16_t>(Interruption8Bits::IRQ8, *instructionAddress));
+		offset += 2;
+
+		memcpy(instructionAddress, offset, sizeof(int16_t));
+		interruptions16bits.insert(std::pair<Interruption16Bits, int16_t>(Interruption16Bits::COP16, *instructionAddress));
+		offset += 2;
+		memcpy(instructionAddress, offset, sizeof(int16_t));
+		interruptions16bits.insert(std::pair<Interruption16Bits, int16_t>(Interruption16Bits::ABORT16, *instructionAddress));
+		offset += 2;
+		memcpy(instructionAddress, offset, sizeof(int16_t));
+		interruptions16bits.insert(std::pair<Interruption16Bits, int16_t>(Interruption16Bits::NMI16, *instructionAddress));
+		offset += 2;
+		memcpy(instructionAddress, offset, sizeof(int16_t));
+		interruptions16bits.insert(std::pair<Interruption16Bits, int16_t>(Interruption16Bits::RES16, *instructionAddress));
+		offset += 2;
+		memcpy(instructionAddress, offset, sizeof(int16_t));
+		interruptions16bits.insert(std::pair<Interruption16Bits, int16_t>(Interruption16Bits::BRK16, *instructionAddress));
+		offset += 2;
+		memcpy(instructionAddress, offset, sizeof(int16_t));
+		interruptions16bits.insert(std::pair<Interruption16Bits, int16_t>(Interruption16Bits::IRQ16, *instructionAddress));
+	}
+
+	delete instructionAddress;
 }

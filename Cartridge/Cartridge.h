@@ -1,4 +1,5 @@
 #pragma once
+#include <map>
 
 class StaticRam;
 class ROM;
@@ -6,8 +7,9 @@ class ROM;
 class Cartridge
 {
 private:
-	StaticRam*		staticRam;
-	ROM*			rom;
+	StaticRam*									staticRam;
+	ROM*										rom;
+	
 public:
 	Cartridge();
 	~Cartridge();

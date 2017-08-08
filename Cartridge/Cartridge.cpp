@@ -15,6 +15,8 @@ Cartridge::Cartridge()
 
 Cartridge::~Cartridge()
 {
+	delete staticRam;
+	delete rom;
 }
 
 void Cartridge::Insert(const char * path, const char * name)

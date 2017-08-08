@@ -16,8 +16,6 @@ private:
 	double frequency;
 	std::map<int8_t, std::function<void()>> mInstructionMapping;
 
-	int8_t* memory; //todo: implement this in a proper way
-
 	void ExecuteInstruction();
 	void InitializeInstructionSet();
 public:
@@ -31,7 +29,7 @@ private:
 	void ADC()
 	{
 		mRegisters.ProgramCounter += sizeof(int8_t);
-		mRegisters.DP += *(memory + mRegisters.ProgramCounter);
+		//mRegisters.DP += *(memory + mRegisters.ProgramCounter);
 	}
 };
 
