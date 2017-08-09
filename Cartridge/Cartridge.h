@@ -14,5 +14,9 @@ public:
 	Cartridge();
 	~Cartridge();
 	void Insert(const char* path, const char* name);
+	inline const ROM* GetRom()
+	{
+		return rom;
+	}
 };
 

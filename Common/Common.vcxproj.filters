@@ -36,6 +36,9 @@
     <ClInclude Include="EndianConverter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IBus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

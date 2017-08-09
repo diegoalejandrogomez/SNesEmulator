@@ -27,12 +27,18 @@
     <ClInclude Include="SnesConsole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Bus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SnesConsole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

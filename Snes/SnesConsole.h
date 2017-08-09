@@ -1,13 +1,13 @@
 #pragma once
 class Cartridge;
 class Processor;
-
+class Bus;
 class SnesConsole
 {
 private:
-	Cartridge* cartridge;
-	Processor* processor;
-
+	Cartridge*		cartridge;
+	Processor*		processor;
+	Bus*			bus;
 	void StartProcessor();
 public:
 	SnesConsole();

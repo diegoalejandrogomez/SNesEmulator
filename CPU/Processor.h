@@ -7,13 +7,16 @@
 #include <map>
 
 class ProcessorStatus;
+class IBus;
 class Processor
 {
 private:
-	Clock* mClock;
-	Registers mRegisters;
-	ProcessorStatus* mStatus;
-	ExecutionStatus mExecutionStatus;
+	Clock*				mClock;
+	Registers			mRegisters;
+	ProcessorStatus*	mStatus;
+	IBus*				mBus;
+	ExecutionStatus		mExecutionStatus;
+
 	double frequency;
 	std::map<uint8_t, std::function<void()>> mInstructionMapping;
 
@@ -23,8 +26,8 @@ public:
 	Processor(double frequency);
 	~Processor();
 	void Loop();
-	void SendSignal(Interruption interruption);
-
+	void ProcessSignal(Interruption interruption);
+	void SetBus(IBus* bus);
 private:
 	//add with carry -> DP Indexed Indirect
 	//2 byes

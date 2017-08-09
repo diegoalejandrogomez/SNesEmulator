@@ -10,8 +10,7 @@ class ROM
 private:
 	MemoryModel*								memoryModel;
 	RomHeader*									romHeader;
-	std::map<Interruption, uint16_t>		interruptions8bits;
-	std::map<Interruption, uint16_t>		interruptions16bits;
+	std::map<Interruption, uint16_t>			interruptionsBits;
 	
 	int headerOffset = 0x0;
 	bool isLowRom;
@@ -26,5 +25,14 @@ private:
 public:
 	ROM(char* path);
 	~ROM();
+	inline const MemoryModel* GetMemoryModel() const
+	{
+		return memoryModel;
+	}
+
+	inline const std::map<Interruption, uint16_t>& GetInterruptionVector() const
+	{
+		return interruptionsBits;
+	}
 };
 

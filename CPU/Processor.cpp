@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Processor.h"
 #include "ProcessorStatus.h"
-
+#include <IBus.h>
 
 Processor::Processor(double frequency) :
 	frequency(frequency),
@@ -38,12 +38,15 @@ void Processor::Loop()
 	{
 		mClock->Update();
 	}
-
-	
-
 }
 
-void Processor::SendSignal(Interruption interruption)
+void Processor::ProcessSignal(Interruption interruption)
 {
+	uint16_t instructionAddress = mBus->GetInterruptionHandler(interruption);
+	uint32_t page = mBus->MapAddress(0, instructionAddress);
+}
 
+void Processor::SetBus(IBus* bus)
+{
+	this->mBus = bus;
 }

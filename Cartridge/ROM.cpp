@@ -93,42 +93,42 @@ void ROM::FillInterruptions()
 	{
 		uint8_t* offset = (memoryModel->Banks->MemoryPosition + 0x7FE4 ); //64 bytes for header
 		instructionAddress = reinterpret_cast<unsigned short*>(offset);
-		interruptions8bits.insert(std::pair<Interruption, uint16_t>(Interruption::COP8, *instructionAddress));
+		interruptionsBits.insert(std::pair<Interruption, uint16_t>(Interruption::COP8, *instructionAddress));
 		offset += 2;
 		instructionAddress = reinterpret_cast<unsigned short*>(offset);
-		interruptions8bits.insert(std::pair<Interruption, uint16_t>(Interruption::BRK8, *instructionAddress));
+		interruptionsBits.insert(std::pair<Interruption, uint16_t>(Interruption::BRK8, *instructionAddress));
 		offset += 2;
 		instructionAddress = reinterpret_cast<unsigned short*>(offset);
-		interruptions8bits.insert(std::pair<Interruption, uint16_t>(Interruption::ABORT8, *instructionAddress));
+		interruptionsBits.insert(std::pair<Interruption, uint16_t>(Interruption::ABORT8, *instructionAddress));
 		offset += 2;
 		instructionAddress = reinterpret_cast<unsigned short*>(offset);
-		interruptions8bits.insert(std::pair<Interruption, uint16_t>(Interruption::NMI8, *instructionAddress));
+		interruptionsBits.insert(std::pair<Interruption, uint16_t>(Interruption::NMI8, *instructionAddress));
 		offset += 2;
 		instructionAddress = reinterpret_cast<unsigned short*>(offset);
-		interruptions8bits.insert(std::pair<Interruption, uint16_t>(Interruption::RESET8, *instructionAddress));
+		interruptionsBits.insert(std::pair<Interruption, uint16_t>(Interruption::RESET8, *instructionAddress));
 		offset += 2;
 		instructionAddress = reinterpret_cast<unsigned short*>(offset);
-		interruptions8bits.insert(std::pair<Interruption, uint16_t>(Interruption::IRQ8, *instructionAddress));
+		interruptionsBits.insert(std::pair<Interruption, uint16_t>(Interruption::IRQ8, *instructionAddress));
 		offset += 6;
 
 		instructionAddress = reinterpret_cast<unsigned short*>(offset);
-		interruptions16bits.insert(std::pair<Interruption, uint16_t>(Interruption::COP16, *instructionAddress));
+		interruptionsBits.insert(std::pair<Interruption, uint16_t>(Interruption::COP16, *instructionAddress));
 		offset += 2;
 		instructionAddress = reinterpret_cast<unsigned short*>(offset);
-		interruptions16bits.insert(std::pair<Interruption, uint16_t>(Interruption::ABORT16, *instructionAddress));
+		interruptionsBits.insert(std::pair<Interruption, uint16_t>(Interruption::ABORT16, *instructionAddress));
 		offset += 2;
 		instructionAddress = reinterpret_cast<unsigned short*>(offset);
-		interruptions16bits.insert(std::pair<Interruption, uint16_t>(Interruption::NMI16, *instructionAddress));
+		interruptionsBits.insert(std::pair<Interruption, uint16_t>(Interruption::NMI16, *instructionAddress));
 		offset += 2;
 		instructionAddress = reinterpret_cast<unsigned short*>(offset);
-		interruptions16bits.insert(std::pair<Interruption, uint16_t>(Interruption::RES16, *instructionAddress));
+		interruptionsBits.insert(std::pair<Interruption, uint16_t>(Interruption::RES16, *instructionAddress));
 		offset += 2;
 		instructionAddress = reinterpret_cast<unsigned short*>(offset);
-		interruptions16bits.insert(std::pair<Interruption, uint16_t>(Interruption::BRK16, *instructionAddress));
+		interruptionsBits.insert(std::pair<Interruption, uint16_t>(Interruption::BRK16, *instructionAddress));
 		offset += 2;
 		instructionAddress = reinterpret_cast<unsigned short*>(offset);
-		interruptions16bits.insert(std::pair<Interruption, uint16_t>(Interruption::IRQ16, *instructionAddress));
+		interruptionsBits.insert(std::pair<Interruption, uint16_t>(Interruption::IRQ16, *instructionAddress));
 	}
 
-	delete instructionAddress;
+	//delete instructionAddress;
 }
