@@ -17,7 +17,7 @@ Processor::Processor(double frequency) :
 
 void Processor::InitializeInstructionSet()
 {
-	mInstructionMapping.insert(std::make_pair((int8_t)0x61, std::bind(&Processor::ADC, this)));
+	mInstructionMapping.insert(std::make_pair((uint8_t)0x61, std::bind(&Processor::ADC, this)));
 }
 
 Processor::~Processor()
@@ -40,5 +40,10 @@ void Processor::Loop()
 	}
 
 	
+
+}
+
+void Processor::SendSignal(Interruption interruption)
+{
 
 }

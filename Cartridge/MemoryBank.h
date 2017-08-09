@@ -6,7 +6,7 @@ class MemoryBank
 private:
 	
 public:
-	int8_t*		MemoryPosition;
+	uint8_t*		MemoryPosition;
 	MemoryBank();
 	~MemoryBank();
 };

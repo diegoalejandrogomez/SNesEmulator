@@ -1,5 +1,5 @@
 #pragma once
-enum Interruption8Bits
+enum Interruption
 {
 	//Co-processor enable. Not used for the Super NES
 	COP8 ,
@@ -10,11 +10,7 @@ enum Interruption8Bits
 	//unused
 	RESET8,
 	//Interrupt request. Can be set to be called at a certain spot in the horizontal refresh cycle.
-	IRQ8
-};
-
-enum Interruption16Bits
-{
+	IRQ8,
 	//Co-processor enable. Not normally used for the Super NES
 	COP16,
 	ABORT16,

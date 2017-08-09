@@ -2,6 +2,7 @@
 #include "SnesConsole.h"
 #include "Processor.h"
 #include "Cartridge.h"
+#include <Interruption.h>
 #include <thread>
 
 SnesConsole::SnesConsole()
@@ -30,6 +31,7 @@ void SnesConsole::TurnOn()
 
 void SnesConsole::StartProcessor()
 {
+	processor->SendSignal(Interruption::RES16);
 	processor->Loop();
 }
 

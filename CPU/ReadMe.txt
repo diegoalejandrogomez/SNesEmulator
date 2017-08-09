@@ -12,3 +12,4 @@ https://www.zophar.net/documents/snes.html
 
 
 https://en.wikibooks.org/wiki/Super_NES_Programming/Super_FX_tutorial -> Someday....
+http://www.cs.umb.edu/~bazz/snes/cartridges/lorom.html#memory-map

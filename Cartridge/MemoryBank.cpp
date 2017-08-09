@@ -4,7 +4,7 @@
 
 MemoryBank::MemoryBank()
 {
-	MemoryPosition = new int8_t[0x10000];
+	MemoryPosition = new uint8_t[0x10000];
 }
 
 

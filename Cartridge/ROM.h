@@ -10,8 +10,8 @@ class ROM
 private:
 	MemoryModel*								memoryModel;
 	RomHeader*									romHeader;
-	std::map<Interruption8Bits, int16_t>		interruptions8bits;
-	std::map<Interruption16Bits, int16_t>		interruptions16bits;
+	std::map<Interruption, uint16_t>		interruptions8bits;
+	std::map<Interruption, uint16_t>		interruptions16bits;
 	
 	int headerOffset = 0x0;
 	bool isLowRom;

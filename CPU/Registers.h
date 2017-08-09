@@ -14,20 +14,20 @@ struct Registers
 	DynamicRegister			IndexY;
 
 	//The stack pointer, points to the next available(unused) location on the stack.
-	int16_t					StackPointer;
+	uint16_t					StackPointer;
 
 	//Data bank register, holds the default bank for memory transfers
-	int16_t					DB;
+	uint16_t					DB;
 
 	//Direct page register, used for direct page addressing modes. Holds the memory bank address of the data the CPU is accessing
-	int16_t					DP;
+	uint16_t					DP;
 
 	//Program Bank, holds the bank address of all instruction fetches.
-	int16_t					PB;
+	uint16_t					PB;
 
 	//Holds various important flags, results of tests and 65816 processing states
 	ProcessorStatus			Status;
 
 	//Holds the memory address of the current CPU instruction
-	int16_t					ProgramCounter;
+	uint16_t					ProgramCounter;
 };

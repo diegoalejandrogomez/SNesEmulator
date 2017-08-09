@@ -6,6 +6,6 @@
 //(0 = 16 - bit, 1 = 8 - bit)
 union DynamicRegister
 {
-	int8_t a;
-	int16_t b;
+	uint8_t a;
+	uint16_t b;
 };
